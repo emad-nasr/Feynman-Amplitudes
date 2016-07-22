@@ -72,9 +72,9 @@ class graph:
         return self
    
     def connect(self,a,b,x=None):
-        # add an edge from a to b ( undirected) if x is given set the edge index to x otherwise counter
+        # add an edge from a to b ( undirected) if x is given set the edge index to x otherwise max number of other edges+1
         # an edge in dictionary self.edge has index as the key and its value is a tuple (a,b); the edge connects a to b where a<=b
-        if x==None:x=self.counter
+        if x==None:x=max(list(self.edge)+[-1])+1
         if a not in self.ver: print("%d is not a vertex"%a);return None
         if b not in self.ver: print("%d is not a vertex"%b);return None
         D=self.ver
@@ -416,6 +416,7 @@ class graph:
 
     def complement_sp(self):
         #returns numpy array where each row represent complement of a spanning tree
+        #works if edges are labeled by 0,...,n ; any method using this will not work without this condition
         A=self.binary_sp()
         N=len(A)
         M=len(self.edge)
