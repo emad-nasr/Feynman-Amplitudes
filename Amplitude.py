@@ -20,7 +20,7 @@ def bits1(n,l=0):
 
 
 def Wedge(A,B,n):
-    #takes two list binary numbers and returns their wedge products mod 2 ( 10101^00010 = 10111 , 100101^100000=000000 2*100110 = 0 ...)
+    #takes two lists of binary numbers and returns their wedge products mod 2 ( 10101^00010 = 10111 , 100101^100000=000000 2*100110 = 0 ...)
     dic={}
     lis=set()
     for y in A:
