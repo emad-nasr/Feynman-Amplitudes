@@ -703,7 +703,7 @@ def Amplitude(G,Final_ver=0,D=4,momentum=None,mass=None):
 
 def complete_graph(k):
 
-    #returns complete graph on k edges
+    #returns complete graph on k nodes
     a=graph(n=k)
     for x in a.ver:
         for y in a.ver:
