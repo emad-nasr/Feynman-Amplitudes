@@ -553,7 +553,7 @@ class graph:
             if cut[edge]==2:
                 self.coef[tuple(cut)]=mass[edge]*mass[edge]
                 return mass[edge]*mass[edge]
-        edges, =where(cut==0)
+        edges, =where(cut==1)
         edges=list(edges)
 
         
@@ -562,12 +562,14 @@ class graph:
             return x.group(1)+x.group(1)
         def number_space(x):
             return x.group(0)[0]+"*"
-        A=self.to_graph(edges)
+        A=copy.deepcopy(self)
+        for edge in edges:
+            A.remove_edge(edge,cop=False)
       
         V_1=A.connected_comp()
         
         V_2=set(self.ver)-V_1
-        #print(V_1,V_2,edges)
+        
         result=0
         for vertex in V_1:
             result+= momentum[vertex]
